@@ -22,7 +22,7 @@ module Frameworks
     @path = "rails"
 
     def start
-      execute "thin start -p #{port} -d"
+      execute "thin start -p #{port} -d -e production"
     end
     def stop
       execute "thin stop"
