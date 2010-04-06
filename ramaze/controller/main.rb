@@ -5,13 +5,10 @@
 #  map '/otherurl'
 # this will force the controller to be mounted on: /otherurl
 
-class MainController < Ramaze::Controller
-  #layout '/page'
-  engine :None
-
+class MainController < Controller
   # the index action is called automatically when no other action is specified
   def index
-    @title = "Welcome to Ramaze!"
+    "Welcome to Ramaze!"
   end
 
   # the string returned at the end of the function is used as the html body

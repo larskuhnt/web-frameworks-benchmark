@@ -1,24 +1,20 @@
 require 'ramaze'
-require 'ramaze/spec/helper'
+require 'ramaze/spec/bacon'
 
-require __DIR__/'..'/'start'
+require __DIR__('../app')
 
 describe MainController do
-  behaves_like 'http', 'xpath'
-  ramaze :view_root => __DIR__/'../view',
-         :public_root => __DIR__/'../public'
+  behaves_like :rack_test
 
-  it 'should show start page' do
-    got = get('/')
-    got.status.should == 200
-    got.at('//title').text.strip.should ==
-      MainController.new.index
+  should 'show start page' do
+    get('/').status.should == 200
+    last_response['Content-Type'].should == 'text/html'
+    last_response.should =~ /<h1>Welcome to Ramaze!<\/h1>/
   end
 
-  it 'should show /notemplate' do
-    got = get('/notemplate')
-    got.status.should == 200
-    got.at('//div').text.strip.should ==
-      MainController.new.notemplate
+  should 'show /notemplate' do
+    get('/notemplate').status.should == 200
+    last_response['Content-Type'].should == 'text/html'
+    last_response.should =~ /there is no 'notemplate\.xhtml' associated with this action/
   end
 end

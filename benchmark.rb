@@ -5,77 +5,51 @@
 #
 
 module Frameworks
-  module Merb
-    @port = 4000
-    @path = "merb"
-  
-    def start
-      execute "MERB_ENV=production merb -p #{port} -d"
-    end
-    def stop
-      execute "MERB_ENV=production merb -K #{port}"
-    end
-  end
-
-  module MerbVeryFlat
-    @port = 4002
-    @path = "merb-very-flat"
-  
-    def start
-      execute "MERB_ENV=production merb -I merb-very-flat.rb -p #{port} -d"
-    end
-    def stop
-      execute "MERB_ENV=production merb -I merb-very-flat.rb -K #{port}"
-    end
-  end
-
-  # Note: shitty ramaze doesn't allow to run daemon by "ruby start.rb -d", but "ramaze" command
-  # doesn't understand "-p" option. Using 7000, as hardcoded in the start.rb
   module Ramaze
     @port = 7000
     @path = "ramaze"
-  
-    def start 
-      execute "ramaze"
+
+    def start
+      execute "thin start -p #{port} -d -e production"
     end
     def stop
-      execute "ramaze -d stop"
+      execute "thin stop"
     end
   end
 
   module Rails
     @port = 3000
     @path = "rails"
-  
+
     def start
-      execute "script/server -e production -p #{port} -d "
+      execute "thin start -p #{port} -d"
     end
     def stop
-      execute "script/process/reaper -a kill -r mongrel.pid"
+      execute "thin stop"
     end
   end
-  
-  module Camping
-    @port = 3301
-    @path = 'camping'
-    
-    def start
-      execute %{./camp_ctl.rb start -- `pwd`/camp.rb -p #{port} -s mongrel}
-    end
-    def stop
-      execute %{./camp_ctl.rb stop -- `pwd`/camp.rb -p #{port} -s mongrel}
-    end
-  end
-  
+
   module Sinatra
     @port = 3900
     @path = 'sinatra'
-    
+
     def start
-      execute %{./sinatra-app.rb start -- -e production -p #{port}}
+      execute "thin start -p #{port} -d -e production"
     end
     def stop
-      execute %{./sinatra-app.rb stop -- -e production -p #{port}}
+      execute "thin stop"
+    end
+  end
+
+  module Padrino
+    @port = 4000
+    @path = 'padrino'
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop"
     end
   end
 end
@@ -118,16 +92,17 @@ concurrency  = (ENV['C'] || 10).to_i
 
 #
 # Benchmark suite
-# 
+#
 runners = Frameworks.constants.map{|c| Frameworks.const_get(c)}
-#runners = [Frameworks::Merb, Frameworks::MerbVeryFlat]
 runners.map{|r| r.extend(Runner::ClassMethods) }
 
 def run(runners, requests_num, concurrency)
+  # Small slow down to be sure that everythings was booted
+  60.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
   puts "Testing frameworks with #{requests_num} requests and #{concurrency} connections: "
-  # runners.each do |r|
-  #   puts "  #{r.name} on port #{r.port}"
-  # end
+  runners.each do |r|
+    puts "  #{r.name} on port #{r.port}"
+  end
 
   results = runners.inject({}) do |table, r|
     instance = Runner::Base.new_with(r)
@@ -160,13 +135,8 @@ def stop(runners)
   runners.each do |r|
     instance = Runner::Base.new_with(r)
     instance.stop
-  end  
-  sleep 1
-  puts "Inspecting stale processes:"
-  system(%{ps aux | egrep "merb|start.rb|ramaze|rails|camping|sinatra"})
+  end
 end
-
-
 
 cmd = ARGV[0]
 
@@ -193,5 +163,3 @@ else
   puts "Use './benchmark.rb run' against already booted servers."
   puts ""
 end
-
-
