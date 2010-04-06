@@ -29,6 +29,18 @@ module Frameworks
     end
   end
 
+  module Rack
+    @port = 3200
+    @path = 'rack'
+
+    def start
+      execute "thin start -p #{port} -d"
+    end
+    def stop
+      execute "thin stop"
+    end
+  end
+
   module Sinatra
     @port = 3900
     @path = 'sinatra'

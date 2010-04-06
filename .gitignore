@@ -5,3 +5,4 @@ rails/tmp/pids/*
 camping/*.pid
 sinatra/*.pid
 sinatra/*.output
+padrino/log/*.log
