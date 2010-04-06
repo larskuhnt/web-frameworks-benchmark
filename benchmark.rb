@@ -5,8 +5,21 @@
 #
 
 module Frameworks
+
+  module Padrino
+    @port = 3000
+    @path = 'padrino'
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop"
+    end
+  end
+
   module Ramaze
-    @port = 7000
+    @port = 4000
     @path = "ramaze"
 
     def start
@@ -18,7 +31,7 @@ module Frameworks
   end
 
   module Rails
-    @port = 3000
+    @port = 5000
     @path = "rails"
 
     def start
@@ -30,7 +43,7 @@ module Frameworks
   end
 
   module Rack
-    @port = 3200
+    @port = 6000
     @path = 'rack'
 
     def start
@@ -42,7 +55,7 @@ module Frameworks
   end
 
   module Sinatra
-    @port = 3900
+    @port = 7000
     @path = 'sinatra'
 
     def start
@@ -53,9 +66,9 @@ module Frameworks
     end
   end
 
-  module Padrino
-    @port = 4000
-    @path = 'padrino'
+  module Merb
+    @port = 8000
+    @path = 'merb'
 
     def start
       execute "thin start -p #{port} -d -e production"
