@@ -106,8 +106,8 @@ concurrency  = (ENV['C'] || 10).to_i
 #
 # Benchmark suite
 #
-# runners = Frameworks.constants.map{|c| Frameworks.const_get(c)}
-runners = [Frameworks::Padrino, Frameworks::Sinatra]
+runners = Frameworks.constants.map{|c| Frameworks.const_get(c)}
+# runners = [Frameworks::Padrino, Frameworks::Sinatra]
 runners.map{|r| r.extend(Runner::ClassMethods) }
 
 def run(runners, requests_num, concurrency)
@@ -132,6 +132,7 @@ def run(runners, requests_num, concurrency)
     table[name] = rps
     table
   end
+
   results = results.to_a.sort_by{|a| a[1]}.reverse
   results.each do |(name, rps)|
     puts "  #{name} => #{rps} rps"
