@@ -8,7 +8,7 @@
 class MainController < Controller
   # the index action is called automatically when no other action is specified
   def index
-    "Welcome to Ramaze!"
+    # render index.xhtml
   end
 
   # the string returned at the end of the function is used as the html body
