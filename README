@@ -6,7 +6,7 @@ Recent results for the basic string rendering (higher is better):
   Merb => 1693.17 rps
   Sinatra => 1642.6 rps
   Padrino => 1161.0 rps
-  Rails => 376.72 rps
+  Rails3 => 376.72 rps
   Ramaze => 278.14 rps
 
 rps = requests per second
