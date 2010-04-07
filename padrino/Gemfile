@@ -3,5 +3,10 @@ source :rubygems
 # Project requirements
 gem 'rake'
 
+# Padrino Edge
+%w(core gen helpers mailer admin).each do |gem|
+  gem 'padrino-' + gem, :path => '/src/padrino-framework/padrino-' + gem
+end
+
 # Padrino
-gem 'padrino', "0.9.9"
+# gem 'padrino', "0.9.9"

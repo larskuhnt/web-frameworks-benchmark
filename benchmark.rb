@@ -6,18 +6,6 @@
 
 module Frameworks
 
-  module Padrino
-    @port = 3000
-    @path = 'padrino'
-
-    def start
-      execute "thin start -p #{port} -d -e production"
-    end
-    def stop
-      execute "thin stop"
-    end
-  end
-
   module Ramaze
     @port = 4000
     @path = "ramaze"
@@ -26,55 +14,55 @@ module Frameworks
       execute "thin start -p #{port} -d -e production"
     end
     def stop
-      execute "thin stop"
+      execute "thin stop -f"
     end
   end
 
   module Rails
-    @port = 5000
+    @port = 4100
     @path = "rails"
 
     def start
       execute "thin start -p #{port} -d -e production"
     end
     def stop
-      execute "thin stop"
-    end
-  end
-
-  module Rack
-    @port = 6000
-    @path = 'rack'
-
-    def start
-      execute "thin start -p #{port} -d"
-    end
-    def stop
-      execute "thin stop"
+      execute "thin stop -f"
     end
   end
 
   module Sinatra
-    @port = 7000
+    @port = 4200
     @path = 'sinatra'
 
     def start
       execute "thin start -p #{port} -d -e production"
     end
     def stop
-      execute "thin stop"
+      execute "thin stop -f"
     end
   end
 
   module Merb
-    @port = 8000
+    @port = 4300
     @path = 'merb'
 
     def start
       execute "thin start -p #{port} -d -e production"
     end
     def stop
-      execute "thin stop"
+      execute "thin stop -f"
+    end
+  end
+
+  module Padrino
+    @port = 4400
+    @path = 'padrino'
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop -f"
     end
   end
 end
@@ -118,12 +106,13 @@ concurrency  = (ENV['C'] || 10).to_i
 #
 # Benchmark suite
 #
-runners = Frameworks.constants.map{|c| Frameworks.const_get(c)}
+# runners = Frameworks.constants.map{|c| Frameworks.const_get(c)}
+runners = [Frameworks::Padrino, Frameworks::Sinatra]
 runners.map{|r| r.extend(Runner::ClassMethods) }
 
 def run(runners, requests_num, concurrency)
   # Small slow down to be sure that everythings was booted
-  60.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
+  10.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
   puts "Testing frameworks with #{requests_num} requests and #{concurrency} connections: "
   runners.each do |r|
     puts "  #{r.name} on port #{r.port}"
