@@ -4,11 +4,11 @@ Recent results for the basic string rendering (higher is better):
 
   Rack 1.1.0        => 1927.13 rps
   Padrino 0.9.10    => 1149.71 rps
-  Sinatra 1.0.0     => 1176.34 rps
-  Merb 1.1.0        => 1037.78 rps
+  Sinatra 1.0.0     => 1129.93 rps
+  Merb 1.1.0        => 1117.72 rps
   Padrino 0.9.9     => 671.78 rps
-  Rails 3.0.beta    => 325.34 rps
-  Ramaze 2010.04.04 => 254.48 rps
+  Rails 3.0.beta    => 339.77 rps
+  Ramaze 2010.04.04 => 251.71 rps
 
 rps = requests per second
 
