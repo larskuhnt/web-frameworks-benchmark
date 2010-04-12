@@ -30,8 +30,20 @@ module Frameworks
     end
   end
 
-  module Sinatra
+  module Padrino
     @port = 4200
+    @path = 'padrino'
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop -f"
+    end
+  end
+
+  module Sinatra
+    @port = 4300
     @path = 'sinatra'
 
     def start
@@ -43,20 +55,8 @@ module Frameworks
   end
 
   module Merb
-    @port = 4300
-    @path = 'merb'
-
-    def start
-      execute "thin start -p #{port} -d -e production"
-    end
-    def stop
-      execute "thin stop -f"
-    end
-  end
-
-  module Padrino
     @port = 4400
-    @path = 'padrino'
+    @path = 'merb'
 
     def start
       execute "thin start -p #{port} -d -e production"
@@ -111,8 +111,6 @@ runners = Frameworks.constants.map{|c| Frameworks.const_get(c)}
 runners.map{|r| r.extend(Runner::ClassMethods) }
 
 def run(runners, requests_num, concurrency)
-  # Small slow down to be sure that everythings was booted
-  60.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
   puts "Testing frameworks with #{requests_num} requests and #{concurrency} connections: "
   runners.each do |r|
     puts "  #{r.name} on port #{r.port}"
@@ -144,6 +142,7 @@ def start(runners)
     instance = Runner::Base.new_with(r)
     instance.start
   end
+  10.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
 end
 
 def stop(runners)
