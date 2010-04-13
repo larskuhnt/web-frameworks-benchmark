@@ -1,5 +1,5 @@
 class PadrinoApp < Padrino::Application
   get :index do
-    "Hi, I'm a small Padrino application!"
+    "Im a padrino application"
   end
 end

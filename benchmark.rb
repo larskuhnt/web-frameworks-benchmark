@@ -30,8 +30,20 @@ module Frameworks
     end
   end
 
-  module Sinatra
+  module Padrino
     @port = 4200
+    @path = 'padrino'
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop -f"
+    end
+  end
+
+  module Sinatra
+    @port = 4300
     @path = 'sinatra'
 
     def start
@@ -43,7 +55,7 @@ module Frameworks
   end
 
   module Merb
-    @port = 4300
+    @port = 4400
     @path = 'merb'
 
     def start
@@ -54,9 +66,9 @@ module Frameworks
     end
   end
 
-  module Padrino
-    @port = 4400
-    @path = 'padrino'
+  module Rack
+    @port = 4500
+    @path = 'rack'
 
     def start
       execute "thin start -p #{port} -d -e production"
@@ -89,6 +101,7 @@ module Runner
   end
   module InstanceMethods
     def start
+      Dir["#{path}/log/*.log"].each { |f| File.delete(f) }
       puts "Starting #{path} on port #{port}"
       super
     end

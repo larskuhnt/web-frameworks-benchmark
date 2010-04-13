@@ -1,5 +1,5 @@
 class RackApp
   def call(env)
-    [200, {"Content-Type" => "text/html"}, %{Hi, I'm a small rack application!}]
+    [200, {"Content-Type" => "text/html"}, "Im rack application"]
   end
 end
