@@ -1,4 +1,4 @@
-class Welcome < Application  
+class Welcome < Application
   before do
     session[:user_id] = 10
   end
@@ -6,7 +6,7 @@ class Welcome < Application
   def index
     render :action => "index"
   end
-  
+
   def about
     "Hello World!"
   end

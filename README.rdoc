@@ -4,12 +4,11 @@ This branch utilizes before_filters, helpers, layouts, and sessions
 
 Recent results for the rendering (higher is better):
 
-  Rack 1.1.0        => 1710.11 rps
-  Merb 1.1.0        => 1490.8 rps
-  Padrino 0.9.10    => 1416.84 rps
-  Sinatra 1.0.0     => 1157.89 rps
-  Rails 3.0.beta3   => 330.58 rps
-  Ramaze 2010.04.04 => 254.23 rps
+  Sinatra 1.0.0     => 769.71 rps
+  Padrino 0.9.10    => 717.64 rps
+  Merb 1.1.0        => 537.53 rps
+  Rails 3.0.beta3   => 231.13 rps
+  Ramaze 2010.04.04 => 179.44 rps
 
 rps = requests per second
 
