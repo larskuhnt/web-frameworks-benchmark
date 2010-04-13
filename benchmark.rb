@@ -65,6 +65,18 @@ module Frameworks
       execute "thin stop -f"
     end
   end
+
+  module Rack
+    @port = 4500
+    @path = "rack"
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop -f"
+    end
+  end
 end
 
 module Runner
