@@ -2,11 +2,11 @@ Web frameworks benchmark.
 
 Recent results for the basic string rendering (higher is better):
 
-  Rack => 3287.95 rps
-  Merb => 1693.17 rps
-  Sinatra => 1642.6 rps
-  Padrino => 1270.59 rps
-  Rails3 => 376.72 rps
-  Ramaze => 278.14 rps
+  Rack 1.1.0 => 3356.44 rps
+  Merb 1.1.0 => 1748.36 rps
+  Sinatra 1.0.0 => 1543.45 rps
+  Padrino 0.9.10 => 1325.75 rps
+  Rails 3.beta3 => 371.59 rps
+  Ramaze 2010.04.04 => 234.26 rps
 
 rps = requests per second
