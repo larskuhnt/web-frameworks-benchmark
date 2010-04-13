@@ -28,4 +28,5 @@
 Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
   match('/').to(:controller => 'welcome', :action =>'index')
+  match('/about').to(:controller => 'welcome', :action => 'about').name(:about)
 end

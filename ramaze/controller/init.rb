@@ -4,7 +4,7 @@
 class Controller < Ramaze::Controller
   layout :default
   helper :xhtml
-  engine :Etanni
+  engine :haml
 end
 
 # Here go your requires for subclasses of Controller:

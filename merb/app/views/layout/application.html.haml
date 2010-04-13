@@ -1,0 +1,14 @@
+!!! Strict
+%html
+  %head
+    %title Merb Application
+    = css_include_tag 'application'
+  %body
+    #header
+      %h1 Merb Application
+      %ul.menu
+        %li= link_to 'About', url(:about)
+    #container
+      #main= catch_content
+    #footer
+      All Rights Reserved

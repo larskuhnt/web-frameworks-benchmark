@@ -1,0 +1,14 @@
+!!! Strict
+%html
+  %head
+    %title Ramaze Application
+    = css 'application'
+  %body
+    #header
+      %h1 Ramaze Application
+      %ul.menu
+        %li= a('About', r(:about))
+    #container
+      #main= @content
+    #footer
+      All Rights Reserved

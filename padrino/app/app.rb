@@ -1,10 +1,17 @@
-class PadrinoApp < Padrino::Application
+class PadrinoApp < Padrino::Application  
+  configure do
+    enable :sessions
+  end
+
+  before do
+    session[:user_id] = 10
+  end
+  
   get :index do
-    ##
-    # This is pretty different than sinatra render because
-    # look for templates and also application layout for
-    # the given content_type and locale
-    #
     render "index"
+  end
+  
+  get :about do
+    'Hello World!'
   end
 end

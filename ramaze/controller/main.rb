@@ -6,9 +6,17 @@
 # this will force the controller to be mounted on: /otherurl
 
 class MainController < Controller
+  before_all { 
+     session[:user_id] = 10
+  }
+  
   # the index action is called automatically when no other action is specified
   def index
     # render index.xhtml
+  end
+  
+  def about
+    "Hello World"
   end
 
   # the string returned at the end of the function is used as the html body

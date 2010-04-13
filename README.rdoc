@@ -1,6 +1,8 @@
 Web frameworks benchmark.
 
-Recent results for the basic string rendering (higher is better):
+This branch utilizes before_filters, helpers, layouts, and sessions
+
+Recent results for the rendering (higher is better):
 
   Rack 1.1.0        => 1710.11 rps
   Merb 1.1.0        => 1490.8 rps

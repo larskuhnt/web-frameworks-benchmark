@@ -1,0 +1,14 @@
+!!! Strict
+%html
+  %head
+    %title Sinatra Application
+    <link type="text/css" media="screen" rel="stylesheet" href="/stylesheets/application.css?1271182870" /> 
+  %body
+    #header
+      %h1 Sinatra Application
+      %ul.menu
+        %li <a href="/about">About</a>
+    #container
+      #main= yield
+    #footer
+      All Rights Reserved
