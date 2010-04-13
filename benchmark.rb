@@ -101,6 +101,7 @@ module Runner
   end
   module InstanceMethods
     def start
+      Dir["#{path}/log/*.log"].each { |f| File.delete(f) }
       puts "Starting #{path} on port #{port}"
       super
     end
