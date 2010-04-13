@@ -30,9 +30,9 @@ module Frameworks
     end
   end
 
-  module Padrino
+  module Sinatra
     @port = 4200
-    @path = 'padrino'
+    @path = 'sinatra'
 
     def start
       execute "thin start -p #{port} -d -e production"
@@ -42,9 +42,9 @@ module Frameworks
     end
   end
 
-  module Sinatra
+  module Padrino
     @port = 4300
-    @path = 'sinatra'
+    @path = 'padrino'
 
     def start
       execute "thin start -p #{port} -d -e production"
