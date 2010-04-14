@@ -2,12 +2,12 @@
 %html
   %head
     %title Sinatra Application
-    <link type="text/css" media="screen" rel="stylesheet" href="/stylesheets/application.css?1271182870" /> 
+    = stylesheet_link_tag :application
   %body
     #header
       %h1 Sinatra Application
       %ul.menu
-        %li <a href="/about">About</a>
+        %li= link_to "About", "/about"
     #container
       #main= yield
     #footer

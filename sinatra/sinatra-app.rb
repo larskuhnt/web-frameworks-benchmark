@@ -1,3 +1,5 @@
+require 'helpers/tag_helpers'
+
 class SinatraApp < Sinatra::Application
   configure do
     enable :sessions
