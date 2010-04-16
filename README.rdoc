@@ -1,14 +1,14 @@
 Web frameworks benchmark.
 
-This branch utilizes before_filters, helpers, layouts, and sessions
+This branch utilizes before_filters, helpers, haml, controllers, layouts, and sessions
 
 Recent results for the rendering (higher is better):
 
-  Sinatra 1.0.0     => 769.71 rps
-  Padrino 0.9.10    => 717.64 rps
-  Merb 1.1.0        => 537.53 rps
-  Rails 3.0.beta3   => 231.13 rps
-  Ramaze 2010.04.04 => 179.44 rps
+  Padrino 0.9.10    => 675.79 rps
+  Sinatra 1.0.0     => 652.0 rps
+  Merb 1.1.0        => 642.29 rps
+  Rails 3.0.beta3   => 201.86 rps
+  Ramaze 2010.04.04 => 130.62 rps
 
 rps = requests per second
 
