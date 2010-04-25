@@ -30,9 +30,9 @@ module Frameworks
     end
   end
 
-  module Sinatra
+  module Padrino
     @port = 4200
-    @path = 'sinatra'
+    @path = 'padrino'
 
     def start
       execute "thin start -p #{port} -d -e production"
@@ -42,9 +42,9 @@ module Frameworks
     end
   end
 
-  module Padrino
+  module Sinatra
     @port = 4300
-    @path = 'padrino'
+    @path = 'sinatra'
 
     def start
       execute "thin start -p #{port} -d -e production"
@@ -68,7 +68,7 @@ module Frameworks
 
   module Rack
     @port = 4500
-    @path = 'rack'
+    @path = "rack"
 
     def start
       execute "thin start -p #{port} -d -e production"
@@ -77,7 +77,7 @@ module Frameworks
       execute "thin stop -f"
     end
   end
-  
+
   module Camping
     @port = 4600
     @path = 'camping'
@@ -136,8 +136,6 @@ runners = Frameworks.constants.map{|c| Frameworks.const_get(c)}
 runners.map{|r| r.extend(Runner::ClassMethods) }
 
 def run(runners, requests_num, concurrency)
-  # Small slow down to be sure that everythings was booted
-  10.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
   puts "Testing frameworks with #{requests_num} requests and #{concurrency} connections: "
   runners.each do |r|
     puts "  #{r.name} on port #{r.port}"
@@ -157,6 +155,7 @@ def run(runners, requests_num, concurrency)
     table[name] = rps
     table
   end
+
   results = results.to_a.sort_by{|a| a[1]}.reverse
   results.each do |(name, rps)|
     puts "  #{name} => #{rps} rps"
@@ -168,6 +167,7 @@ def start(runners)
     instance = Runner::Base.new_with(r)
     instance.start
   end
+  20.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
 end
 
 def stop(runners)
