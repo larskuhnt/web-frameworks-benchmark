@@ -65,6 +65,18 @@ module Frameworks
       execute "thin stop -f"
     end
   end
+  
+  module Camping
+    @port = 4600
+    @path = 'camping'
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop -f"
+    end
+  end
 end
 
 module Runner
