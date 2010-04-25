@@ -1,3 +1,3 @@
 require 'camping-app'
 
-run App
+run CampingApp

@@ -1,8 +1,8 @@
 require 'camping'
 
-Camping.goes :App
+Camping.goes :CampingApp
 
-module App::Controllers
+module CampingApp::Controllers
   class Index
     def get
       "Im a camping application"
