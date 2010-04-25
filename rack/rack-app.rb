@@ -1,5 +1,6 @@
 class RackApp
   def call(env)
-    [ 200, {"Content-Type" => "text/html"}, Tilt.new('views/index.erb').render ]
+    index_html = Tilt.new('views/index.erb').render
+    Rack::Response.new(index_html).finish
   end
 end
