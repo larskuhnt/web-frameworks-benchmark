@@ -52,12 +52,12 @@ Number Of Processors::	1
 Total Number Of Cores::	2
 L2 Cache::	3 MB
 Memory::	4 GB
-Bus Speed::	1,07 GHz
+Bus Speed::	1.07 GHz
 
 with ruby 1.8.7 (2010-01-10 patchlevel 249) [i686-darwin10.2.0]
 
 == Acknowledgements
 
-The original source code for running these benchmarks is attributed to oleganza[http://github.com/oleganza/web-frameworks-benchmark].
-This fork was developed by DAddYE[http://github.com/DAddYE] and "Nathan Esquenazi"[http://github.com/nesquena] for use in benchmarking Padrino.
-The code was heavily adapted and modern versions of each popular ruby web framework were included along with developing three different benchmark tests for additional accuracy. 
+The original source code for running these benchmarks is attributed to the {oleganza repo}[http://github.com/oleganza/web-frameworks-benchmark].
+This fork was developed by DAddYE[http://github.com/DAddYE] and {Nathan Esquenazi}[http://github.com/nesquena] for use in benchmarking Padrino.
+The code was heavily adapted and recent versions of each popular ruby web framework were included along with developing three different benchmark tests for additional accuracy. 
