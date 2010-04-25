@@ -29,13 +29,13 @@ Our intention is for these benchmarks to include all 'popular' ruby framework al
 
 == Caveats
 
-While constructing 'equivalent' applications for each of the frameworks for each of the branches, occasionally decisions has to be made in order to allow achieve the same functionality throughout them all. Here are a few decisions we had to make during the development of these benchmarks:
+While constructing 'equivalent' applications for each of the frameworks for each of the branches, occasionally decisions had to be made in order to achieve the same functionality throughout. Here are a few decisions made during the development of these benchmarks:
 
 * The camping applications utilize 'markaby' instead of 'erb' and 'haml' due to a current framework limitation.
 * The rack applications utilize the 'Tilt' library for the rendering of 'erb' and 'haml' templates (and layouts).
 * The sinatra and rack applications required us to build simplified 'helpers' to keep the tests accurate.
 
-We have tried to be fair for each of the frameworks tested and stick to the common 'real-world' usage. If anybody has any suggestions on how to improve the accuracy of these benchmarks, please do let us know or fork the project!
+We want to be fair for each of the frameworks tested and stick to the common 'real-world' usage. If anybody has any suggestions on how to improve the accuracy of these benchmarks, please do let us know or fork the project!
 
 == Environment
 
