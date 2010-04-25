@@ -1,6 +1,7 @@
 require 'camping'
+require 'camping/template'
+
 Camping.goes :CampingApp
-require 'views/index'
 
 module CampingApp::Controllers
   class Index
