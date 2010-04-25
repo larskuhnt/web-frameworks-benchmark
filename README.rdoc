@@ -4,12 +4,13 @@ This branch utilizes before_filters, helpers, haml, controllers, layouts, and se
 
 Recent results for the rendering (higher is better):
 
-  Padrino 0.9.10    => 726.69 rps
-  Sinatra 1.0.0     => 723.67 rps
-  Merb 1.1.0        => 483.47 rps
-  Rails 3.0.beta3   => 221.06 rps
-  Ramaze 2010.04.04 => 176.66 rps
-  Camping 2.0.0     => 155.42 rps
+  Padrino => 731.75 rps
+  Sinatra => 706.52 rps
+  Merb    => 480.03 rps
+  Rack    => 253.23 rps
+  Rails   => 207.85 rps
+  Ramaze  => 177.13 rps
+  Camping => 155.96 rps
 
 rps = requests per second
 
