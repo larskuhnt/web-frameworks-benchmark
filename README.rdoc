@@ -8,24 +8,33 @@ Personally, no one on our team is a big fan of benchmarks since they can often b
 
 Within our benchmarks, we opted to test three different sample applications (three repo branches):
 
-text_render:: a bare minimum app serves as a baseline where the response is just rendering a quick inline string.
-template_render:: a simple app where the response is serving a small 'view' template.
-more_advanced:: the most comprehensive test of a ‘full-stack’ application including sessions, haml, layouts, templates, flash, and helpers... aka a real world usage.
+text_render:: a bare minimum app serves as a baseline simply rendering an inline string for the response.
+template_render:: a simple app serving a small 'view' template for the response.
+more_advanced:: ‘full-stack’ app including sessions, haml, layouts, templates, and helpers.
 
-== Apps
+== Frameworks
 
-It can be very difficult accurately benchmark different frameworks for a number of reasons. For example, the camping apps at the moment use Markaby due to a framework limitation. 
-
-In other cases, we had to make decisions on how to create 'fair' equivalent apps within all three frameworks. If anybody has any suggestions on how to improve the accuracy of these benchmarks, please do let us know or fork the project!
-
-Application frameworks tested in benchmarks:
+The application frameworks tested in these benchmarks:
 
 * Rack 1.1.0
 * Merb 1.1.0
 * Padrino 0.9.10
 * Sinatra 1.0.0
+* Camping 2.0
 * Rails 3.beta3
 * Ramaze 2010.04.04
+
+Our intention is for these benchmarks to include all 'popular' ruby framework alternatives. If you would like to add another framework, please fork this project and let us know!
+
+== Caveats
+
+While constructing 'equivalent' applications for each of the frameworks for each of the branches, occasionally decisions has to be made in order to allow achieve the same functionality throughout them all. Here are a few decisions we had to make during the development of these benchmarks:
+
+* The camping applications utilize 'markaby' instead of 'erb' and 'haml' due to a current framework limitation.
+* The rack applications utilize the 'Tilt' library for the rendering of 'erb' and 'haml' templates (and layouts).
+* The sinatra and rack applications required us to build simplified 'helpers' to keep the tests accurate.
+
+We have tried to be fair for each of the frameworks tested and stick to the common 'real-world' usage. If anybody has any suggestions on how to improve the accuracy of these benchmarks, please do let us know or fork the project!
 
 == Environment
 
@@ -46,4 +55,4 @@ with ruby 1.8.7 (2010-01-10 patchlevel 249) [i686-darwin10.2.0]
 == Acknowledgements
 
 Running benches can give quite different results on different machines. This can be primarily due to the fact that your system can be busy with other background processes during execution. 
-Padrino/Merb/Sinatra all have similar performance in practice. This means that in some tests Padrino might run faster yet in others Merb or Sinatra might appear faster. Be sure to run the benchmarks 5 or 6 times and choose the most common result.
+Padrino, Merb and Sinatra all have quite similar performance results. This means that often in certain executions, Padrino might run faster and yet in others Merb or Sinatra might appear faster. Be sure to run the benchmarks 5 or 6 times and then choose the most frequent result.
