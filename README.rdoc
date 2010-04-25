@@ -23,6 +23,7 @@ The application frameworks tested in these benchmarks:
 * Camping 2.0
 * Rails 3.beta3
 * Ramaze 2010.04.04
+* Camping 2.0.0
 
 Our intention is for these benchmarks to include all 'popular' ruby framework alternatives. If you would like to add another framework, please fork this project and let us know!
 
