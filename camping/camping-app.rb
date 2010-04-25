@@ -1,6 +1,6 @@
 require 'camping'
 Camping.goes :CampingApp
-require 'views/main'
+require 'views/index'
 
 module CampingApp::Controllers
   class Index
