@@ -1,6 +1,6 @@
 == Why?
 
-Right after announcing Padrino, many developers began to request benchmarks in order give them a better understanding of how our framework compared in terms of performance with the existing ruby web frameworks.
+Right after announcing {Padrino}[http://www.padrinorb.com], many developers began to request benchmarks in order give them a better understanding of how our framework compared in terms of performance with the existing ruby web frameworks.
 
 Personally, no one on our team is a big fan of benchmarks since they can often be misleading and real world usage is generally quite different. However, we decided that providing a set of reasonable benchmarking results would help people get at least a general sense of Padrino’s speed in relation to other popular alternatives.
 
@@ -59,5 +59,5 @@ with ruby 1.8.7 (2010-01-10 patchlevel 249) [i686-darwin10.2.0]
 == Acknowledgements
 
 The original source code for running these benchmarks is attributed to the {oleganza repo}[http://github.com/oleganza/web-frameworks-benchmark].
-This fork was developed by DAddYE[http://github.com/DAddYE] and {Nathan Esquenazi}[http://github.com/nesquena] for use in benchmarking Padrino.
+This fork was developed by DAddYE[http://github.com/DAddYE] and {Nathan Esquenazi}[http://github.com/nesquena] for use in benchmarking {Padrino}[http://www.padrinorb.com].
 The code was heavily adapted and recent versions of each popular ruby web framework were included along with developing three different benchmark tests for additional accuracy. 
