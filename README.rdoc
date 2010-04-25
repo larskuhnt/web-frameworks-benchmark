@@ -16,14 +16,13 @@ more_advanced:: ‘full-stack’ app including sessions, haml, layouts, template
 
 The application frameworks tested in these benchmarks:
 
-* Rack 1.1.0
-* Merb 1.1.0
-* Padrino 0.9.10
-* Sinatra 1.0.0
-* Camping 2.0
-* Rails 3.beta3
-* Ramaze 2010.04.04
-* Camping 2.0.0
+* Rack 1.1.0 ({site}[http://rack.rubyforge.org/])
+* Padrino 0.9.10 ({site}[http://www.padrinorb.com])
+* Sinatra 1.0.0 ({site}[http://www.sinatrarb.com])
+* Rails 3.beta3 ({site}[http://rubyonrails.org/])
+* Merb 1.1.0 ({site}[http://www.merbivore.com/])
+* Camping 2.0.0 ({site}[http://camping.rubyforge.org/])
+* Ramaze 2010.04.04 ({site}[http://ramaze.net/])
 
 Our intention is for these benchmarks to include all 'popular' ruby framework alternatives. If you would like to add another framework, please fork this project and let us know!
 
