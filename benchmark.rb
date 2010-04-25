@@ -77,7 +77,7 @@ module Frameworks
       execute "thin stop -f"
     end
   end
-  
+
   module Camping
     @port = 4600
     @path = 'camping'
@@ -137,7 +137,7 @@ runners.map{|r| r.extend(Runner::ClassMethods) }
 
 def run(runners, requests_num, concurrency)
   # Small slow down to be sure that everythings was booted
-  10.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
+  20.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
   puts "Testing frameworks with #{requests_num} requests and #{concurrency} connections: "
   runners.each do |r|
     puts "  #{r.name} on port #{r.port}"
