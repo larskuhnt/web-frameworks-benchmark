@@ -1,5 +1,5 @@
 class RackApp
   def call(env)
-    [200, {"Content-Type" => "text/html"}, "Im rack application"]
+    Rack::Response.new("Im rack application").finish
   end
 end
