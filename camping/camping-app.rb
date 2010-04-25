@@ -6,7 +6,7 @@ require 'views/main'
 module CampingApp
   include Camping::Session
   secret "This is a test"
-  
+
   def service(*args)
     @state[:user_id] = 10
     super(*args)
@@ -20,13 +20,13 @@ module CampingApp::Controllers
       render :index
     end
   end
-  
+
   class About
     def get
       'Hello World!'
     end
   end
-  
+
   class Stylesheet < R '/stylesheets/application.css'
     def get
       @headers['Content-Type'] = 'text/css'

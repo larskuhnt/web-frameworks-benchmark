@@ -65,7 +65,7 @@ module Frameworks
       execute "thin stop -f"
     end
   end
-  
+
   module Camping
     @port = 4600
     @path = 'camping'
@@ -155,7 +155,7 @@ def start(runners)
     instance = Runner::Base.new_with(r)
     instance.start
   end
-  10.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
+  20.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
 end
 
 def stop(runners)
