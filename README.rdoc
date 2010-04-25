@@ -37,6 +37,9 @@ While constructing 'equivalent' applications for each of the frameworks for each
 
 We want to be fair for each of the frameworks tested and stick to the common 'real-world' usage. If anybody has any suggestions on how to improve the accuracy of these benchmarks, please do let us know or fork the project!
 
+Also worth noting is that running benchmarks can give yield quite different results on different machines. This can be primarily due to the fact that your system can be busy with other background processes during execution. 
+Padrino, Merb and Sinatra all also have quite similar performance results. This means that often in certain executions, Padrino might run faster and yet in others Merb or Sinatra might appear faster. Be sure to run the benchmarks 5 or 6 times and then choose the most frequent result.
+
 == Environment
 
 These benchmarks were executed on the following machine:
@@ -55,5 +58,6 @@ with ruby 1.8.7 (2010-01-10 patchlevel 249) [i686-darwin10.2.0]
 
 == Acknowledgements
 
-Running benches can give quite different results on different machines. This can be primarily due to the fact that your system can be busy with other background processes during execution. 
-Padrino, Merb and Sinatra all have quite similar performance results. This means that often in certain executions, Padrino might run faster and yet in others Merb or Sinatra might appear faster. Be sure to run the benchmarks 5 or 6 times and then choose the most frequent result.
+The original source code for running these benchmarks is attributed to oleganza[http://github.com/oleganza/web-frameworks-benchmark].
+The code was heavily adapted and modern versions of each popular ruby web framework were included along with developing three different benchmark tests for additional accuracy. 
+These modifications were made by DAddYE[http://github.com/DAddYE] and Nathan Esquenazi[http://github.com/nesquena] for use in benchmarking Padrino.
