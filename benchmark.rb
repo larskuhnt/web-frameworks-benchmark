@@ -66,6 +66,18 @@ module Frameworks
     end
   end
   
+  module Rack
+    @port = 4500
+    @path = "rack"
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop -f"
+    end
+  end
+  
   module Camping
     @port = 4600
     @path = 'camping'
