@@ -26,7 +26,7 @@ Application frameworks tested in benchmarks:
 * Sinatra 1.0
 * Rails 3.beta3
 * Ramaze 2010.04.04
-* Camping 2.0
+* Camping 2.0.0
 
 == Environment
 
