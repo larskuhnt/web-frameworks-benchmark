@@ -1,15 +1,20 @@
 require 'helpers/tag_helpers'
+require 'tilt'
 
 class RackApp
   include TagHelpers
+  include Tilt::CompileSite
+  
+  Index = Tilt.new('views/index.haml')
+  Layout = Tilt.new('views/layout.haml')
 
   def call(env)
     session(env)[:user_id] = 10
     request = Rack::Request.new(env)
     case request.path
       when '/'
-        index_html = Tilt.new('views/index.haml').render(self)
-        layout_html = Tilt.new('views/layout.haml').render(self) { index_html }
+        index_html = Index.render(self)
+        layout_html = Layout.render(self) { index_html }
         Rack::Response.new(layout_html).finish
       when '/about'
         Rack::Response.new("Hello World").finish
