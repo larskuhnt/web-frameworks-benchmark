@@ -1,8 +1,5 @@
 require 'rubygems'
-require 'sinatra'
+require 'sinatra/base'
 require 'sinatra-app'
-
-set :env,  :production
-disable :run
 
 run SinatraApp
