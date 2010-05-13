@@ -1,5 +1,4 @@
 class PadrinoApp < Padrino::Application
-  configure do
-    enable :sessions
-  end
+  register Padrino::Helpers
+  enable :sessions
 end
