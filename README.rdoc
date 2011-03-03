@@ -11,3 +11,9 @@ Recent results for the basic string rendering (higher is better):
   Ramaze  => 278.06 rps
 
 rps = requests per second
+
+== Usage
+
+To start and stop servers: './benchmark.rb start|stop'.
+To setup gem for servesr:  './benchmark.rb setup'
+Use './benchmark.rb run' against already booted servers.
