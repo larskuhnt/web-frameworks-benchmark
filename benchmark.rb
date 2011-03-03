@@ -177,6 +177,12 @@ def stop(runners)
   end
 end
 
+def setup
+  %w[merb rails padrino .].each do |dir|
+    Dir.chdir(dir) { system 'bundle install' }
+  end
+end
+
 cmd = ARGV[0]
 
 if cmd == 'start'
@@ -197,8 +203,11 @@ elsif cmd == 'run'
   run(runners, requests_num, concurrency)
 elsif cmd == 'stop'
   stop(runners)
+elsif cmd == 'setup'
+  setup
 else
   puts "Start and stop servers with ./benchmark.rb start|stop"
+  puts "install gems with ./benchmark.rb setup"
   puts "Use './benchmark.rb run' against already booted servers."
   puts ""
 end
