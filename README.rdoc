@@ -17,4 +17,5 @@ rps = requests per second
 == Usage
 
 To start and stop servers: './benchmark.rb start|stop'.
+To setup gem for servesr:  './benchmark.rb setup'
 Use './benchmark.rb run' against already booted servers.
