@@ -1,5 +1,5 @@
 require 'rubygems'
 require 'sinatra/base'
-require 'sinatra-app'
+require File.expand_path('../sinatra-app',__FILE__)
 
 run SinatraApp
