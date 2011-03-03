@@ -1,4 +1,4 @@
-require 'helpers/tag_helpers'
+require File.expand_path('../helpers/tag_helpers',__FILE__)
 require 'tilt'
 
 class RackApp

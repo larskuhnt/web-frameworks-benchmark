@@ -1,5 +1,5 @@
 class SinatraApp < Sinatra::Base
-  require 'helpers/tag_helpers'
+  require File.expand_path('../helpers/tag_helpers',__FILE__)
   include SinatraApp::Helpers
 
   configure do
