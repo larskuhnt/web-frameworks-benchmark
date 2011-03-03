@@ -1,6 +1,6 @@
 Web frameworks benchmark.
 
-Check the wiki for the [latest benchmark results](https://github.com/DAddYE/web-frameworks-benchmark/wiki) or the [master README](https://github.com/DAddYE/web-frameworks-benchmark/blob/master/README.rdoc) for details about the benchmarks.
+Check the wiki for the latest benchmark results[https://github.com/DAddYE/web-frameworks-benchmark/wiki] or the master README[https://github.com/DAddYE/web-frameworks-benchmark/blob/master/README.rdoc] for details about the benchmarks.
 
 == Usage
 
