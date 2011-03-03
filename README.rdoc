@@ -1,21 +1,9 @@
 Web frameworks benchmark.
 
-Recent results for the basic string rendering (higher is better):
-
-  Padrino => 1496.09 rps
-  Rack    => 1453.28 rps
-  Merb    => 1436.74 rps
-  Sinatra => 1074.47 rps
-  Camping => 934.1 rps
-  Rails   => 328.39 rps
-  Ramaze  => 256.45 rps
-
-rps = requests per second
+Check the wiki for the {latest benchmark results}[https://github.com/DAddYE/web-frameworks-benchmark/wiki] or the master README[https://github.com/DAddYE/web-frameworks-benchmark/blob/master/README.rdoc] for details about the benchmarks.
 
 == Usage
 
+To setup gem for server:  './benchmark.rb setup'
 To start and stop servers: './benchmark.rb start|stop'.
-
-To setup gem for servesr:  './benchmark.rb setup'
-
 Use './benchmark.rb run' against already booted servers.
