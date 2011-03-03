@@ -1,5 +1,5 @@
 require 'rubygems'
 require 'rack'
-require 'rack-app'
+require File.expand_path('../rack-app',__FILE__)
 
 run RackApp.new
