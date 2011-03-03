@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'rack'
-require 'rack-app'
+require File.expand_path('../rack-app',__FILE__)
 require 'tilt'
 
 app = Rack::Builder.new {
