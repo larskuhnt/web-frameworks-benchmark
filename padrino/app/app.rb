@@ -6,6 +6,7 @@ class PadrinoApp < Padrino::Application
   disable :static
   disable :method_override
   disable :show_exceptions
+  disable :reload
 
   get :index do
     "Im a padrino application"
