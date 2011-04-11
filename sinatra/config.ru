@@ -1,8 +1,5 @@
 require 'rubygems'
-require 'sinatra'
-require 'sinatra-app'
-
-set :env,  :production
-disable :run
+require 'sinatra/base'
+require File.expand_path('../sinatra-app',__FILE__)
 
 run SinatraApp

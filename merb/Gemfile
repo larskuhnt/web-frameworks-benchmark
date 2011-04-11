@@ -6,7 +6,6 @@ gem "json_pure", ">= 1.1.7", :require => "json"
 
 # For more information about each component,
 # please read http://wiki.merbivore.com/faqs/merb_components
-
 gem "merb-haml"
 gem "merb-core"
 gem "merb-assets"

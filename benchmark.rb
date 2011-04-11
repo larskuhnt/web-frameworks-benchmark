@@ -207,6 +207,7 @@ elsif cmd == 'setup'
   puts logs
 else
   puts "Start and stop servers with ./benchmark.rb start|stop"
+  puts "install gems with ./benchmark.rb setup"
   puts "Use './benchmark.rb run' against already booted servers."
   puts ""
 end
