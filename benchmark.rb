@@ -197,6 +197,14 @@ elsif cmd == 'run'
   run(runners, requests_num, concurrency)
 elsif cmd == 'stop'
   stop(runners)
+elsif cmd == 'setup'
+  logs = Dir["**/Gemfile"].inject("") do |log, file|
+    puts "=> Updating #{file}"
+    log += "\n" + `cd #{File.dirname(file)} && bundle update`.chomp
+  end
+  logs = logs.each.reject { |line| line !~ /camping|merb-core|padrino-core|rails|ramaze|sinatra/i || line.strip == "" }
+  puts "============================"
+  puts logs
 else
   puts "Start and stop servers with ./benchmark.rb start|stop"
   puts "Use './benchmark.rb run' against already booted servers."
