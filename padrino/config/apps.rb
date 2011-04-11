@@ -17,4 +17,4 @@ However, the mounted core can be modified as needed:
 =end
 
 # Mounts the core application for this project
-Padrino.mount_core("PadrinoApp")
+Padrino.mount("PadrinoApp").to("/")

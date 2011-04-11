@@ -5,7 +5,6 @@ require 'views/main'
 
 module CampingApp
   include Camping::Session
-  secret "This is a test"
 
   def service(*args)
     @state[:user_id] = 10
