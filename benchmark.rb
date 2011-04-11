@@ -177,12 +177,6 @@ def stop(runners)
   end
 end
 
-def setup
-  %w[merb rails padrino .].each do |dir|
-    Dir.chdir(dir) { system 'bundle install' }
-  end
-end
-
 cmd = ARGV[0]
 
 if cmd == 'start'
@@ -204,7 +198,13 @@ elsif cmd == 'run'
 elsif cmd == 'stop'
   stop(runners)
 elsif cmd == 'setup'
-  setup
+  logs = Dir["**/Gemfile"].inject("") do |log, file|
+    puts "=> Updating #{file}"
+    log += "\n" + `cd #{File.dirname(file)} && bundle update`.chomp
+  end
+  logs = logs.each.reject { |line| line !~ /camping|merb-core|padrino-core|rails|ramaze|sinatra/i || line.strip == "" }
+  puts "============================"
+  puts logs
 else
   puts "Start and stop servers with ./benchmark.rb start|stop"
   puts "install gems with ./benchmark.rb setup"
