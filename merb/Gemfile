@@ -1,3 +1,4 @@
+source :rubygems
 # If you did disable json for Merb, comment out this line.
 # Don't use json gem version lower than 1.1.7! Older version have a security bug
 
