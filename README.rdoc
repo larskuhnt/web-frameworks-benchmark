@@ -5,5 +5,5 @@ Check the wiki for the {latest benchmark results}[https://github.com/DAddYE/web-
 == Usage
 
 To setup gem for server:  './benchmark.rb setup'
-To start and stop servers: './benchmark.rb start|stop'.
+To start and stop servers: './benchmark.rb start|restart|stop'.
 Use './benchmark.rb run' against already booted servers.
