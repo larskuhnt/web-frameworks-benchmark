@@ -9,4 +9,4 @@ gem 'rake'
 # end
 
 # Padrino
-gem 'padrino', "0.9.21"
+gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
