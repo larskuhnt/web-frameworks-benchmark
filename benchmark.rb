@@ -202,7 +202,7 @@ elsif cmd == 'setup'
     puts "=> Updating #{file}"
     log += "\n" + `cd #{File.dirname(file)} && bundle update`.chomp
   end
-  logs = logs.each.reject { |line| line !~ /camping|merb-core|padrino-core|rails|ramaze|sinatra/i || line.strip == "" }
+  logs = logs.each_line.reject { |line| line !~ /camping|merb-core|padrino-core|rails|ramaze|sinatra/i || line.strip == "" }
   puts "============================"
   puts logs
 else
