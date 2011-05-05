@@ -54,8 +54,8 @@ def stop
 end
 
 def gems_info
-  logs = Dir["**/Gemfile.lock"].map { |f| File.read(f) }.join("\n")
-  "  " + logs.scan(/((?:#{@frameworks.join("|")}){1} \([\d\.]+\))/i).flatten.uniq.join("\n  ")
+  specs = Dir["**/Gemfile.lock"].map { |f| File.read(f) }.join("\n")
+  "  " + specs.scan(/((?:#{@frameworks.join("|")}){1} \([\d\.]+\))/i).flatten.uniq.join("\n  ")
 end
 
 def sys_info
