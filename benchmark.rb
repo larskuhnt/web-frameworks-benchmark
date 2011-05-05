@@ -48,7 +48,7 @@ def stop
   @frameworks.each do |f|
     cmd = "thin stop -e production -c #{File.join(@path, f)}"
     puts "=> #{cmd}"
-    system cmd
+    puts "<= " + `#{cmd}`.chomp
   end
 end
 
