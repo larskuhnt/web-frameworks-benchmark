@@ -62,7 +62,7 @@ def sys_info
   sys_info = uname =~ /darwin/i ? `system_profiler` : `cat /proc/cpuinfo` + `cat /proc/meminfo`
   sys_info =~ /(?:Memory|MemTotal):\s+(.*)/
   mem      = $1
-  sys_info =~ /(?:Processor Name|model name):\s+(.*)/
+  sys_info =~ /(?:Processor Name|model name\t):\s+(.*)/
   cpu_name = $1
   sys_info =~ /(?:Processor Speed|cpu MHz):\s+(.*)/
   cpu_mhz  = $1
