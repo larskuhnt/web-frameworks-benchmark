@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-@path         = File.expand_path(File.dirname(__FILE__))
 @requests     = (ENV['N'] || 1000).to_i
 @concurrency  = (ENV['C'] || 10).to_i
 @frameworks   = %w(camping merb padrino rack rails ramaze sinatra)
@@ -36,7 +35,7 @@ end
 
 def start
   @frameworks.sort.each_with_index do |f, i|
-    cmd  = "thin start -d -p #{4000+i*10} -e production -c #{File.join(@path, f)}"
+    cmd  = "thin start -d -p #{4000+i*10} -e production -c #{f}"
     puts "=> #{cmd}"
     system cmd
   end
@@ -46,7 +45,7 @@ end
 
 def stop
   @frameworks.each do |f|
-    cmd = "thin stop -e production -c #{File.join(@path, f)}"
+    cmd = "thin stop -e production -c #{f}"
     puts "=> #{cmd}"
     puts "<= " + `#{cmd}`.chomp
   end
