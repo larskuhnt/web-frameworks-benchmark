@@ -11,7 +11,7 @@ def run
 
   @frameworks.sort.each_with_index do |f, i|
     port = 4000+i*10
-    puts "Benchmarking #{f} on port #{port}..."
+    puts "=> Benchmarking #{f} on port #{port}..."
     cmd  = "ab -c #{@concurrency} -n #{@requests} http://127.0.0.1:#{port}/ 2>/dev/null"
     puts "=> #{cmd}"
     result = `#{cmd}`
@@ -20,6 +20,7 @@ def run
     results[f] = $1.to_f
   end
 
+  5.times { puts }
   puts "=" * 40
   puts sys_info
   puts "=" * 40
@@ -31,6 +32,7 @@ def run
   results.to_a.sort_by { |a| a[1] }.reverse.each do |name, rps|
     puts "  #{name} => #{rps} rps"
   end
+  5.times { puts }
 end
 
 def start
