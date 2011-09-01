@@ -21,12 +21,14 @@ def run
   end
 
   5.times { puts }
-  puts "=" * 40
+  puts "=" * 80
+  puts "Using branch: %s" % `git branch`[/^\*\s(.*)$/, 1]
+  puts "=" * 80
   puts sys_info
-  puts "=" * 40
+  puts "=" * 80
   puts "Using:"
   puts gems_info
-  puts "=" * 40
+  puts "=" * 80
   puts "Results:"
 
   results.to_a.sort_by { |a| a[1] }.reverse.each do |name, rps|

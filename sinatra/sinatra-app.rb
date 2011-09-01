@@ -2,16 +2,14 @@ class SinatraApp < Sinatra::Base
   require File.expand_path('../helpers/tag_helpers',__FILE__)
   include SinatraApp::Helpers
 
-  configure do
-    enable :sessions
-  end
+  enable :sessions
+  set :public, File.expand_path('../public', __FILE__)
 
   before do
     session[:user_id] = 10
   end
 
   disable :logging
-  disable :static
   disable :method_override
   disable :show_exceptions
 

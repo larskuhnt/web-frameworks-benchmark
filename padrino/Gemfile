@@ -10,4 +10,4 @@ gem 'haml'
 # end
 
 # Padrino
-gem 'padrino', :git => "git://github.com/padrino/padrino-framework.git"
+gem 'padrino'

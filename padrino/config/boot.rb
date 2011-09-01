@@ -3,8 +3,7 @@ PADRINO_ENV  = ENV["PADRINO_ENV"] ||= ENV["RACK_ENV"] ||= "development" unless d
 PADRINO_ROOT = File.dirname(__FILE__) + '/..' unless defined? PADRINO_ROOT
 
 require 'rubygems'
-require 'bundler'
-Bundler.setup(:default, PADRINO_ENV)
+require 'bundler/setup'
 Bundler.require(:default, PADRINO_ENV)
 
 Padrino.load!
