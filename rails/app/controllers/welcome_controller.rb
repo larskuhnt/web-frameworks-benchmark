@@ -1,5 +1,7 @@
-class WelcomeController < ActionController::Base
+class WelcomeController < ApplicationController
+  
   def index
-    render :text => "Im a rails application"
+    render :text => 'Welcome from Rails!'
   end
+  
 end
