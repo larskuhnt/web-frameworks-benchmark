@@ -89,6 +89,18 @@ module Frameworks
       execute "thin stop -f"
     end
   end
+  
+  module Track
+    @port = 4700
+    @path = "track"
+
+    def start
+      execute "thin start -p #{port} -d -e production"
+    end
+    def stop
+      execute "thin stop -f"
+    end
+  end
 end
 
 module Runner
@@ -146,7 +158,7 @@ def run(runners, requests_num, concurrency)
     port = r.port
     name = r.name.gsub(/^.*::/,'')
     puts "Benchmarking #{name} on port #{port}..."
-    cmd = %{ab -c #{concurrency} -n #{requests_num} http://127.0.0.1:#{port}/ 2>/dev/null}
+    cmd = %{ab -c #{concurrency} -n #{requests_num} -r http://127.0.0.1:#{port}/ 2>/dev/null}
     puts ">> #{cmd}"
     result = `#{cmd}`
     sleep 0.3
@@ -158,7 +170,7 @@ def run(runners, requests_num, concurrency)
 
   results = results.to_a.sort_by{|a| a[1]}.reverse
   results.each do |(name, rps)|
-    puts "  #{name} => #{rps} rps"
+    puts "  #{name.ljust(7)} => #{("%.2f" % rps).to_s.rjust(7)} rps"
   end
 end
 
@@ -167,7 +179,7 @@ def start(runners)
     instance = Runner::Base.new_with(r)
     instance.start
   end
-  20.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
+  5.downto(0) { |i| print "Test start in #{i}s \r"; $stdout.flush; sleep 1 }
 end
 
 def stop(runners)
@@ -202,7 +214,7 @@ elsif cmd == 'setup'
     puts "=> Updating #{file}"
     log += "\n" + `cd #{File.dirname(file)} && bundle update`.chomp
   end
-  logs = logs.each_line.reject { |line| line !~ /camping|merb-core|padrino-core|rails|ramaze|sinatra/i || line.strip == "" }
+  logs = logs.each_line.reject { |line| line !~ /track|camping|merb-core|padrino-core|rails|ramaze|sinatra/i || line.strip == "" }
   puts "============================"
   puts logs
 else
